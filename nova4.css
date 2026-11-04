@@ -1,0 +1,53 @@
+/* ZayyStore — putaran ke-8 (nova4.js). Aman dihapus bersama nova4.js, manifest.webmanifest, sw.js + barisnya di index.html (+ section #kategori). */
+
+/* ---------- kategori berwarna ---------- */
+.nova-cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;max-width:1100px;margin:0 auto}
+.nova-cat{--c1:#38c6ff;--c2:#1565e8;--sh:#0c3f9c;position:relative;overflow:hidden;isolation:isolate;border:0;cursor:pointer;text-align:left;color:#fff;padding:18px 16px 16px;border-radius:20px;display:grid;gap:4px;
+  background:linear-gradient(145deg,var(--c1),var(--c2));box-shadow:0 6px 0 var(--sh),0 14px 26px #0a2a5a3d,inset 0 0 0 1px #ffffff40;transition:transform .25s,box-shadow .25s}
+.nova-cat:nth-child(6n+1){--c1:#ffb347;--c2:#ff5e62;--sh:#b8323a}
+.nova-cat:nth-child(6n+2){--c1:#38c6ff;--c2:#1565e8;--sh:#0c3f9c}
+.nova-cat:nth-child(6n+3){--c1:#52e58a;--c2:#0b9f63;--sh:#06703f}
+.nova-cat:nth-child(6n+4){--c1:#b79cff;--c2:#6a43e0;--sh:#42259f}
+.nova-cat:nth-child(6n+5){--c1:#ff7ad9;--c2:#d6246e;--sh:#901548}
+.nova-cat:nth-child(6n){--c1:#3ee0cf;--c2:#0a8fb3;--sh:#06617a}
+.nova-cat:before{content:"";position:absolute;z-index:-1;right:-26px;top:-26px;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,#ffffff55,transparent 68%)}
+.nova-cat:hover{transform:translateY(-7px) rotate(-.8deg);box-shadow:0 6px 0 var(--sh),0 0 0 3px #fff,0 0 30px 4px color-mix(in srgb,var(--c1) 70%,transparent),0 20px 34px #0004}
+.nova-cat:active{transform:translateY(0)}
+.nova-cat i{font-style:normal;width:48px;height:48px;border-radius:15px;display:grid;place-items:center;font-size:25px;background:#ffffff33;box-shadow:inset 0 0 0 1.5px #ffffff66;margin-bottom:6px}
+.nova-cat b{font:800 14.5px/1.25 Poppins,sans-serif;text-shadow:0 2px 0 #0003}
+.nova-cat small{font:600 12px Poppins,sans-serif;color:#ffffffe0}
+
+/* ---------- bar keranjang mini ---------- */
+.nova-mini{position:fixed;left:50%;bottom:18px;z-index:940;transform:translate(-50%,140%);display:flex;align-items:center;gap:14px;padding:8px 8px 8px 18px;border-radius:40px;border:0;cursor:pointer;
+  background:#0b2447f0;backdrop-filter:blur(10px);color:#fff;box-shadow:0 12px 30px #0007,inset 0 0 0 1px #ffffff33;transition:transform .45s cubic-bezier(.2,.9,.3,1.2)}
+.nova-mini.on{transform:translate(-50%,0)}
+.nova-mini span{font:700 13.5px Poppins,sans-serif;white-space:nowrap}
+.nova-mini b{color:#ffd23f}
+.nova-mini i{font-style:normal;font:800 13px Poppins,sans-serif;padding:10px 18px;border-radius:30px;background:linear-gradient(180deg,#27b7ff,#0a86d8);box-shadow:0 3px 0 #0668ab;white-space:nowrap}
+.nova-mini:hover i{filter:brightness(1.1)}
+body:has(#cartOverlay.open) .nova-mini,body:has(.modal-overlay.open) .nova-mini,body:has(.dt-ov.open) .nova-mini{display:none}
+@media(max-width:700px){.nova-mini{bottom:90px;max-width:calc(100% - 20px);gap:10px;padding-left:14px}.nova-mini span{font-size:12.5px}}
+
+/* ---------- zoom foto ---------- */
+.sv-photo{cursor:zoom-in}
+.nova-lb{position:fixed;inset:0;z-index:3500;display:none;place-items:center;padding:20px;background:#030b1ccc;backdrop-filter:blur(6px);cursor:zoom-out}
+.nova-lb.open{display:grid;animation:novaLb .25s ease}
+.nova-lb img{max-width:min(92vw,900px);max-height:86vh;border-radius:18px;box-shadow:0 0 0 3px #fff,0 0 60px #3db2ff88,0 30px 70px #000a;background:#fff;object-fit:contain}
+.nova-lb button{position:absolute;top:18px;right:20px;width:42px;height:42px;border:0;border-radius:50%;background:#fff;color:#0b2447;font-size:22px;cursor:pointer}
+@keyframes novaLb{from{opacity:0}}
+
+/* ---------- pasang aplikasi ---------- */
+#novaInstall{cursor:pointer}
+#novaInstall[hidden]{display:none}
+
+/* ---------- bantuan pintasan ---------- */
+.nova-kb{position:fixed;inset:0;z-index:3600;display:none;place-items:center;padding:20px;background:#030b1ccc;backdrop-filter:blur(6px)}
+.nova-kb.open{display:grid}
+.nova-kb div{background:#fff;color:#0b2447;border-radius:22px;padding:24px 26px;max-width:380px;width:100%;box-shadow:0 0 0 3px #8be0ff,0 24px 60px #000a}
+.nova-kb h3{margin:0 0 14px;font:800 18px Poppins,sans-serif}
+.nova-kb p{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0;padding:9px 0;border-bottom:1px solid #e3eefb;font:600 13.5px Poppins,sans-serif;color:#46587a}
+.nova-kb p:last-of-type{border:0}
+.nova-kb kbd{font:800 12px Poppins,sans-serif;background:#e8f4ff;color:#0a73c4;border-radius:8px;padding:4px 10px;box-shadow:0 2px 0 #b8d4f0}
+.nova-kb small{display:block;margin-top:12px;text-align:center;font:600 11.5px Poppins,sans-serif;color:#8a99b5}
+
+@media(prefers-reduced-motion:reduce){.nova-mini{transition:none}.nova-lb.open{animation:none}}
