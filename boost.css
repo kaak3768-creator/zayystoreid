@@ -15,7 +15,6 @@
   body{padding-bottom:84px}
   .wa-float{display:none!important}
   .zs-top{left:auto;right:14px;bottom:88px}
-  .zs-snd{bottom:88px!important;left:14px!important}
 }
 
 /* bagikan produk */
@@ -32,8 +31,4 @@
 .zs-skel i:nth-child(1){height:190px;margin-top:0;margin:0 0 18px;border-radius:0}.zs-skel i:nth-child(2){height:16px;width:55%}.zs-skel i:nth-child(3){height:12px;width:80%}.zs-skel i:nth-child(4){height:36px;width:40%}
 @keyframes skel{to{transform:translateX(100%)}}
 
-/* tombol suara */
-.zs-snd{position:fixed;left:18px;bottom:84px;z-index:900;width:44px;height:44px;border:0;border-radius:50%;cursor:pointer;display:grid;place-items:center;font-size:19px;
-  background:#0b2447d9;color:#fff;box-shadow:0 6px 16px #0006,inset 0 0 0 1px #ffffff33;backdrop-filter:blur(6px);transition:transform .2s,background .2s}
-.zs-snd:hover{transform:scale(1.1)}.zs-snd.on{background:#16a34a}
 @media(prefers-reduced-motion:reduce){.zs-skel:before,.deeplink-pulse{animation:none!important}}
