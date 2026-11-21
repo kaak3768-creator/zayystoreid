@@ -102,6 +102,6 @@ html{scrollbar-color:#3db2ff #0b2447;scrollbar-width:thin}
 }
 
 /* ---------- perbaikan HP: sembunyikan navigasi bawah & tombol melayang saat keranjang/popup terbuka ---------- */
-body:has(#cartOverlay.open) .zs-bnav,body:has(#cartOverlay.open) .zs-top,body:has(#cartOverlay.open) .zs-snd,body:has(#cartOverlay.open) .wa-float,
-body:has(.modal-overlay.open) .zs-bnav,body:has(.modal-overlay.open) .zs-top,body:has(.modal-overlay.open) .zs-snd,body:has(.modal-overlay.open) .wa-float,
-body:has(.dt-ov.open) .zs-bnav,body:has(.dt-ov.open) .zs-top,body:has(.dt-ov.open) .zs-snd{display:none!important}
+body:has(#cartOverlay.open) .zs-bnav,body:has(#cartOverlay.open) .zs-top,body:has(#cartOverlay.open) .wa-float,
+body:has(.modal-overlay.open) .zs-bnav,body:has(.modal-overlay.open) .zs-top,body:has(.modal-overlay.open) .wa-float,
+body:has(.dt-ov.open) .zs-bnav,body:has(.dt-ov.open) .zs-top{display:none!important}
