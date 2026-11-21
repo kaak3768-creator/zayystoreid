@@ -62,35 +62,6 @@
     paintShare();
   }
 
-  /* 4. efek suara (opsional, bawaan mati) — dibuat dengan WebAudio, tanpa file */
-  let ctx = null, on = false;
-  try { on = localStorage.getItem("zs_snd") === "1"; } catch {}
-  const tone = (f, t0, d, type = "square", v = 0.05) => {
-    const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type; o.frequency.value = f;
-    g.gain.setValueAtTime(v, ctx.currentTime + t0); g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + t0 + d);
-    o.connect(g); g.connect(ctx.destination); o.start(ctx.currentTime + t0); o.stop(ctx.currentTime + t0 + d + 0.02);
-  };
-  const play = (k) => {
-    if (!on) return;
-    try {
-      ctx = ctx || new (window.AudioContext || window.webkitAudioContext)(); if (ctx.state === "suspended") ctx.resume();
-      if (k === "coin") { tone(988, 0, 0.09); tone(1319, 0.08, 0.2); }
-      else if (k === "pop") { tone(520, 0, 0.07, "triangle", 0.07); tone(780, 0.05, 0.09, "triangle", 0.06); }
-      else tone(300, 0, 0.04, "square", 0.03);
-    } catch {}
-  };
-  const sb = document.createElement("button"); sb.className = "zs-snd" + (on ? " on" : ""); sb.type = "button";
-  sb.setAttribute("aria-label", "Efek suara"); sb.title = "Efek suara"; sb.textContent = on ? "🔊" : "🔇"; document.body.appendChild(sb);
-  sb.addEventListener("click", () => {
-    on = !on; try { localStorage.setItem("zs_snd", on ? "1" : "0"); } catch {}
-    sb.classList.toggle("on", on); sb.textContent = on ? "🔊" : "🔇"; play("coin"); say(on ? "Efek suara aktif 🔊" : "Efek suara dimatikan");
-  });
-  document.addEventListener("click", (e) => {
-    if (e.target.closest(".add-cart")) play("coin");
-    else if (e.target.closest(".fav-btn")) play("pop");
-    else if (e.target.closest(".filter,.sort-bar button,.zs-bnav a,.zs-bnav button")) play("tick");
-  }, true);
-
   /* 5. judul tab berubah saat ditinggal */
   const title = document.title;
   document.addEventListener("visibilitychange", () => { document.title = document.hidden ? "🎮 Balik lagi ya! — ZayyStore" : title; });
