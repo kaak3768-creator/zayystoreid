@@ -1,0 +1,45 @@
+/* ZayyStore — perbaikan final (HP & PC). Dimuat PALING AKHIR di index.html. */
+
+/* 1. Jangan ikut "mode gelap paksa" bawaan browser HP/Chrome (bikin teks & tombol jadi gelap/tidak terbaca).
+      Mode malam resmi tetap lewat tombol 🌙 di header. */
+:root{color-scheme:only light}
+
+/* 2. Cegah halaman melebar ke samping & layar zoom besar-kecil */
+html{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{overflow-x:clip;max-width:100%;min-height:100vh;min-height:100dvh}
+img,video{max-width:100%}
+.overlay,.modal-overlay{overflow:hidden}
+.sv-section,.newsletter,.collab-banner,.zs-ticker,.sv-footer{min-width:0}
+
+/* 3. Layar sentuh: tanpa efek hover/miring yang bikin kartu "loncat" & latar fixed yang berat */
+@media(hover:none),(max-width:900px){
+  body,html.nova-night body{background-attachment:scroll}
+}
+@media(hover:none){
+  .sv-card.product-card:hover{transform:none!important}
+  .sv-card.product-card.touch{transform:translateY(-3px)!important}
+  .fx-glow{display:none!important}
+}
+
+/* 4. Tampilan HP */
+@media(max-width:700px){
+  .sv-header{top:8px;margin-top:8px;width:calc(100% - 16px);height:58px;padding:0 8px 0 10px;gap:6px}
+  .sv-header.nova-shrink{top:6px;height:52px}
+  .sv-brand{min-width:0;flex:0 1 auto;gap:7px}
+  .sv-brand b{font-size:15px;letter-spacing:.3px;white-space:nowrap}
+  .brand-mark{width:34px;height:34px;flex:0 0 auto;font-size:19px}
+  .sv-actions{flex:0 0 auto;gap:5px;margin-left:auto}
+  .sv-actions .icon-btn,.sv-actions .cart-btn,.sv-burger,#novaTheme{width:36px;min-width:36px;height:36px;padding:0;font-size:16px;border-radius:11px}
+  .sv-actions .login-btn{height:36px;padding:0 11px;font-size:13px}
+  .sv-nav{top:66px}
+  .zs-bnav{bottom:calc(10px + env(safe-area-inset-bottom,0px))}
+  body{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+}
+@media(max-width:349px){.sv-brand b{display:none}}
+
+/* 5. Kotak Discord + WhatsApp di bawah: tumpuk ke bawah di layar kecil (sebelumnya kolom WhatsApp terpotong) */
+@media(max-width:900px){
+  .newsletter{padding:18px 16px;gap:0}
+  .newsletter>.news-group,.newsletter>.news-group:nth-child(2){flex:1 1 100%;min-width:0}
+  .newsletter .news-wa{margin-top:18px}
+}
